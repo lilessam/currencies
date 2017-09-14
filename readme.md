@@ -20,7 +20,7 @@ You can also use `get_rates` helper to get an object of today's currencies rates
 // This will return an object of all USD currencies today's rates
 $rates = get_rates('USD');
 // This will return an object of Euro, Indian Rubles and Arab Emirates Dirham rates for USD.
-$rates = get_rates('USD', ['EUR', 'INR', 'AED');
+$rates = get_rates('USD', ['EUR', 'INR', 'AED']);
 ```
 
 
