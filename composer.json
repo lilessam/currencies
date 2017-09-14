@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Lilessam\\Translationman\\": "src/"
+            "Lilessam\\Currencies\\": "src/"
         },
         "files": ["src/helpers.php"]
     },
