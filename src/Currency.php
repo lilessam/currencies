@@ -24,14 +24,15 @@ class Currency
 	 * Get rates of value.
 	 * @param  decimal $value
 	 * @param  string $from
-	 * @param  string|array $to
+	 * @param  array $to
 	 * @return json
 	 */
-	public static function getRates($value, $from, $to = null)
+	public static function getRates($from, $to = null)
 	{
 		$parameters = self::getParameters($from, $to);
 
 		$rates = file_get_contents(self::$baseUrl."?".$parameters);
+
 		$rates = (object) json_decode($rates);
 
 		return $rates->rates;
@@ -47,13 +48,8 @@ class Currency
 	{
 		$parameters  = "base=".$from;
 
-		if(!$to) {
-			
-			if (is_array($to)) {
-				$parameters .= "&symbols=".implode(',', $to);
-			}
-
-			$parameters .= "&symbols=".$to;
+		if (is_array($to)) {
+			$parameters .= "&symbols=".implode(',', $to);
 		}
 
 		return $parameters;

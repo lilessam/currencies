@@ -21,7 +21,7 @@ function convert_currency($value, $from, $to)
  * @param  string|array $to
  * @return json
  */
-function getRates($value, $from, $to = null)
+function get_rates($from, $to = null)
 {
     return Currency::getRates($from, $to);
 }
