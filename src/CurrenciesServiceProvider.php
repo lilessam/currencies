@@ -13,7 +13,9 @@ class CurrenciesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/config/currencies.php' => config_path('currencies.php'),
+        ]);
     }
 
     /**
@@ -24,5 +26,9 @@ class CurrenciesServiceProvider extends ServiceProvider
     public function register()
     {
         require_once __DIR__.'/Currency.php';
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/currencies.php', 'currencies'
+        );
     }
 }
