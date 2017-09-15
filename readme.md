@@ -20,8 +20,15 @@ You can also use `get_rates` helper to get an object of today's currencies rates
 // This will return an object of all USD currencies today's rates
 $rates = get_rates('USD');
 // This will return an object of Euro, Indian Rubles and Arab Emirates Dirham rates for USD.
-$rates = get_rates('USD', ['EUR', 'INR', 'AED']);
+$rates = get_rates('USD', ['EUR', 'INR', 'AUD']);
 ```
+
+### Cache settings
+The package now uses Laravel cache system to cache the data from the external API to reduce the API calls as much as possible. So you can use the following command to publish the package configuration file and change how many minutes you wanna keep the cached data.
+```bash
+php artisan vendor:publish --provider=Lilessam\Currencies\CurrenciesServiceProvider
+```
+The package caches the data for 60 minutes by default.
 
 
 ###### The package has been developed in almost 30 mins, So please post any issue if found or make a pull request. Thanks !
