@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Cache;
 class Currency
 {
     public static $baseUrl = "http://api.fixer.io/latest";
-    public static $api     = config('currencies.api');
 
     /**
      * Convert value from currency to another
@@ -24,9 +23,9 @@ class Currency
             return Cache::get($cache_name);
 
         } else {
-            if (static::$api == 'fixer') {
+            if (config('currencies.api') == 'fixer') {
                 $result = static::fixerConvertCurrency($value, $from, $to);
-            } elseif (static::$api == 'google') {
+            } elseif (config('currencies.api') == 'google') {
                 $result = static::googleConvertCurrency($value, $from, $to);
             }
 
