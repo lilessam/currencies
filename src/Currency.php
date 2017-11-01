@@ -16,6 +16,10 @@ class Currency
      */
     public static function convertCurrency($value, $from, $to)
     {
+        if ($from == $to) {
+            return $value;
+        }
+
         $cache_name = 'rate.' . $from . '.' . $to . '.' . $value;
 
         if (Cache::has($cache_name)) {
