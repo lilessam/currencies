@@ -16,6 +16,10 @@ class Currency
      */
     public static function convertCurrency($value, $from, $to)
     {
+        if ($value == 0) {
+            return 0;
+        }
+        
         if ($from == $to) {
             return $value;
         }
